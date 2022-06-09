@@ -1,0 +1,53 @@
+.evento {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 200px;
+	position: relative;
+}
+
+.evento::after {
+	content: "";
+	display: block;
+	width: 14px;
+	height: 14px;
+	border-radius: 100px;
+	background: #064c4c;
+	border: 2px solid #a4becf;
+	position: absolute;
+	z-index: 2;
+	top: calc(50% - 9px);
+	left: calc(50% - 9px);
+}
+
+.fecha {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	width: calc(40% + 20px);
+	font-size: 32px;
+	font-weight: normal;
+}
+
+.foto {
+	width: 42%;
+	border: 5px solid rgb(244, 239, 235);
+	border-radius: 10px;
+	position: relative;
+	box-shadow: rgba(43, 9, 63, 0.2) 0px 7px 29px 0px;
+}
+
+
+.foto img {
+	width: 100%;
+	vertical-align: top;
+	border-radius: 10px;
+}
+
+.evento:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+.evento:nth-child(even) .fecha {
+	justify-content: end;
+}
+

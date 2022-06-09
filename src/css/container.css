@@ -1,0 +1,41 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f2f2f2;
+    font-family: 'Readex Pro', sans-serif;
+	color: #1c1b1b;
+}
+
+.hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 15vh;
+	padding-top: 20vh;
+	font-size: 36px;
+	text-transform: uppercase;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: 100px auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.container::after {
+	content: "";
+	width: 2px;
+	height: 100%;
+	background: #064c4c;
+	position: absolute;
+	top: 0;
+	left: calc(50% - 1px);
+	z-index: 1;
+}
