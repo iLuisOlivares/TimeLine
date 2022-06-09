@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+
 .evento {
 	display: flex;
 	justify-content: space-between;
@@ -11,8 +16,8 @@
 	width: 14px;
 	height: 14px;
 	border-radius: 100px;
-	background: #064c4c;
-	border: 2px solid #a4becf;
+	background: #f6f3f4;
+	border: 2px solid #ed6573;
 	position: absolute;
 	z-index: 2;
 	top: calc(50% - 9px);
@@ -29,16 +34,31 @@
 }
 
 .foto {
+	transition: all 1s ease-in-out;
 	width: 42%;
-	border: 5px solid rgb(244, 239, 235);
+	border: 5px solid rgb(251, 247, 247);
+	background-color: rgb(251, 247, 247);
 	border-radius: 10px;
+	text-align:center;
 	position: relative;
 	box-shadow: rgba(43, 9, 63, 0.2) 0px 7px 29px 0px;
+}
+
+.foto p{
+	/* font-family: 'Rubik', sans-serif; */
+	/* font-family: 'Joan',serif; */
+	font-size: 20px;
+	font-family: 'Dosis', sans-serif;
+
 }
 
 
 .foto img {
 	width: 100%;
+	padding-bottom: 25px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
 	vertical-align: top;
 	border-radius: 10px;
 }
@@ -50,4 +70,10 @@
 .evento:nth-child(even) .fecha {
 	justify-content: end;
 }
+
+.foto:hover{
+	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
+    }
+.foto {overflow:hidden;}
 
