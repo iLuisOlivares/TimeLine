@@ -9,7 +9,8 @@
       align-items: center;
     }
     
-    
+
+
     .bot{
       background: #f2f2f2;
       width: 600px;
@@ -29,6 +30,7 @@
     .columna{
       border-bottom: 1px solid #ed6573;
       border-radius: 4px;
+      text-align: center;
     }
 
     .table th{
@@ -54,5 +56,10 @@
         margin-top: 30px;
       }
       
-      
+      .cont{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ed6573;
+      }
       

@@ -103,6 +103,13 @@
 
 .evento:nth-child(even) {
 	flex-direction: row-reverse;
+
+}
+.evento:nth-child(even)::after {
+	flex-direction: row-reverse;
+	border: 2px solid #518fdb;
+
+
 }
 
 .evento:nth-child(even) .fecha {
