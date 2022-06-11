@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+
+.top{
+/* background: #ed6573; */
+background: #f1aab2;
+/* background: #fcfbfb; */
+
+  height: 100vh;
+  /*IMPORTANTE*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.bot{
+  width: 600px;
+  height:400px;
+  margin: 20px;
+  border-radius: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+}
+
+
+.form {
+
+    background: #f2f2f2;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 520px;
+    padding: 20px;
+    width: 600px;
+    margin: 20px;
+  }
+  
+  .title {
+    color: #ed6573;
+    font-family: 'Quicksand', sans-serif;	
+
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+    padding-left: 10px;
+
+  }
+  
+  .subtitle {
+    color: #ed6573;
+  font-family: 'Quicksand', sans-serif;	
+
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 10px;
+    margin-top: 20px;
+  }
+  
+  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .ic1 {
+    margin-top: 40px;
+  }
+  
+  .ic2 {
+    margin-top: 30px;
+  }
+  
+  .input {
+    background-color: #f68f8f3e;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #212121;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  .cut {
+    background: #f2f2f2;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 60px;
+  }
+  
+  .cut-short {
+    width: 60px;
+    
+  }
+  
+  .input:focus ~ .cut,
+  .input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  
+  .placeholder {
+
+    color: #3a3838ec;
+    font-family: 'Quicksand', sans-serif;	
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+
+  .input#imagen{
+    font-family: 'Quicksand', sans-serif;	
+
+
+  }
+  
+  .input:focus ~ .placeholder,
+  .input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  
+  .input:not(:placeholder-shown) ~ .placeholder {
+    color: #dc6565;
+
+  }
+  .input#imagen{
+    padding: 13px;
+  }
+  
+  .input:focus ~ .placeholder {
+    color: #dc6565;
+    
+  }
+  
+  .submit {
+    background: #ed6573;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+     outline: 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .submit:active {
+    background-color: rgb(208, 122, 122);
+  }
+  
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 100px;
+    height: 32px;
+    display: inline-block;
+
+  }
+  .file-select {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    
+
+  }
+  
+  .file-select::before {
+    background-color: #5678EF;
+    background-color: #f2dad9;
+    color: rgb(32, 31, 31);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Seleccionar';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  } 
+ 

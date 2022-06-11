@@ -1,0 +1,60 @@
+
+	#btn-mas{
+		display: none;
+	}
+
+	.container-button{
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+
+	}
+
+	.click{
+		cursor: pointer;
+
+	}
+
+	.btn-2:hover{
+		cursor: pointer;
+	color: #ffffff;
+
+		background-color: #ed6573; /* Color de fondo al pasar el cursor */
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+	transform: translateY(-1px);
+
+	}
+
+	.toolkit p, .btn-2{
+		cursor: pointer;
+
+		display: block;
+		text-decoration: none;
+		background: #ffffff; /* Color de fondo */
+		color: #ed6573;
+		width: 55px;
+		height: 55px;
+		line-height: 65px;
+		border-radius: 50%;
+		text-align: center;
+		transition: all 300ms ease 0ms;
+
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	}
+	.toolkit p:hover {
+	color: #ffffff;
+	background-color: #ed6573; /* Color de fondo al pasar el cursor */
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+	transform: translateY(-1px);
+	}
+
+	.toolkit p{
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	#btn-mas:checked~ .toolkit p{
+		margin-bottom: 10px;
+		opacity: 1;
+		visibility: visible;
+	}

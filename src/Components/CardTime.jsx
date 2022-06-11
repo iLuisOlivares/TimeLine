@@ -1,14 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../css/cardStyle.css";
+import Swal from 'sweetalert2'
 
-export const CardTime = () => {
+import 'animate.css';
+
+export const CardTime = ({title,date,imgUrl}) => {
+	const [url, setUrl] = useState(imgUrl);
+	const [titulo, setTitulo]  = useState(title)
+	const [fecha, setFecha] = useState("9. 01. 2021")
+
+	const clickImagen = () =>{
+		Swal.fire({
+		  title: titulo,
+		  text: fecha,
+		  showConfirmButton: false,
+		  imageUrl: url,
+		  imageAlt: titulo,
+		  customClass:{
+			popup: 'mar',
+			image: 'imagen',
+			title: 'font2',
+			confirmButton: 'color-principal',
+			htmlContainer: 'font'
+		  },
+		  showClass: {
+			popup: 'animate__animated animate__bounceInDown'
+		  },
+		  hideClass: {
+			popup: 'animate__animated animate__backOutUp'
+		  }
+		 
+		})
+	  }
+	 
   return (
 	<div className="evento">
-			<div className="foto" data-aos="fade-up">
-				<img src="https://img1.ak.crunchyroll.com/i/spire2/a6e36e575f9d9d38d1cf40d6769980a31651739960_main.jpg" alt=""/>
-				<p>9. 01. 2021.</p>
+			<div onClick={clickImagen} className="foto" data-aos="fade-up">
+				<img src={imgUrl} alt=""/>
+				<p>{fecha}</p>
 			</div>
-			<h3 className="fecha">9 de Enero de 2021</h3>
+			<h3 className="fecha">{fecha}</h3>
 		</div>
   )
 }
