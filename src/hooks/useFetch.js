@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useFetch = (url, config) => {
 
-    const isMounted = useRef(true);
+    // const isMounted = useRef(true);
     const [state, setState] = useState({
         data: null,
         loading: true,

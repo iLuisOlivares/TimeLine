@@ -1,14 +1,16 @@
-.top{
-    /* background: #ed6573; */
-      background: #f1aab2;
-    
-      height: 100vh;
-      /*IMPORTANTE*/
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
+  .boton{
+    background-color: #ed6573;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+  }
+
+
 
 
     .bot{
@@ -17,6 +19,8 @@
       height:400px;
       margin: 20px;
       border-radius: 20px;
+      height: 520px;
+
     }
 
     .table{
@@ -35,16 +39,19 @@
 
     .table th{
       padding: 10px;
+      word-wrap: break-word
     }
     
     .tabla {
         background: #f2f2f2;
         box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
         border-radius: 20px;
+        
         box-sizing: border-box;
-        height: 520px;
         padding: 20px;
-        width: 600px;
+      height: 520px;
+      width: 600px;
+
         margin: 20px;
       }
       
@@ -63,3 +70,20 @@
         color: #ed6573;
       }
       
+      @media(max-width: 767px){
+        .tabla {
+         
+        width: 332px;
+
+        }
+        
+      }
+
+      @media(max-width: 332px){
+        .tabla {
+         
+        width: 250px;
+
+        }
+        
+      }

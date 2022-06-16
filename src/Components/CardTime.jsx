@@ -1,45 +1,65 @@
-import React, { useState } from 'react'
+import React from "react";
 import "../css/cardStyle.css";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
-import 'animate.css';
+import "animate.css";
 
-export const CardTime = ({title,date,imgUrl}) => {
-	const [url, setUrl] = useState(imgUrl);
-	const [titulo, setTitulo]  = useState(title)
-	const [fecha, setFecha] = useState("9. 01. 2021")
+export const CardTime = ({ title, date, imgUrl }) => {
+  const transformar_fecha = fecha => {
+    const [año, mes, dia] = fecha.split("-");
 
-	const clickImagen = () =>{
-		Swal.fire({
-		  title: titulo,
-		  text: fecha,
-		  showConfirmButton: false,
-		  imageUrl: url,
-		  imageAlt: titulo,
-		  customClass:{
-			popup: 'mar',
-			image: 'imagen',
-			title: 'font2',
-			confirmButton: 'color-principal',
-			htmlContainer: 'font'
-		  },
-		  showClass: {
-			popup: 'animate__animated animate__bounceInDown'
-		  },
-		  hideClass: {
-			popup: 'animate__animated animate__backOutUp'
-		  }
-		 
-		})
-	  }
-	 
+    return `${dia}. ${mes}. ${año}`;
+  };
+  const fech = transformar_fecha(date);
+  const transformar_fecha2 = fecha => {
+    const [año, mes, dia] = fecha.split("-");
+    const meses = [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ];
+    return `${dia} de ${meses[Number(mes - 1)]} del ${año}`;
+  };
+  const clickImagen = () => {
+    Swal.fire({
+      title: title,
+      text: fech,
+      showConfirmButton: false,
+      imageUrl: imgUrl,
+      imageAlt: title,
+      customClass: {
+        popup: "mar",
+        image: "imagen",
+        title: "font2",
+        confirmButton: "color-principal",
+        htmlContainer: "font"
+      },
+      showClass: {
+        popup: "animate__animated animate__bounceInDown"
+      },
+      hideClass: {
+        popup: "animate__animated animate__backOutUp"
+      }
+    });
+  };
+
   return (
-	<div className="evento">
-			<div onClick={clickImagen} className="foto" data-aos="fade-up">
-				<img src={imgUrl} alt=""/>
-				<p>{fecha}</p>
-			</div>
-			<h3 className="fecha">{fecha}</h3>
-		</div>
-  )
-}
+    <div className="evento">
+      <div onClick={clickImagen} className="foto" data-aos="fade-up">
+        <img src={imgUrl} alt="" />
+        <p className="pie resaltar">{title}</p>
+        <p className="resaltar sec">{fech}</p>
+      </div>
+      <h3 className="fecha resaltar">{transformar_fecha2(date)}</h3>
+    </div>
+  );
+};

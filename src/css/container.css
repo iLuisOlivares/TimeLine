@@ -8,12 +8,13 @@
 	box-sizing: border-box;
 	/* font-family: 'Rubik', sans-serif; */
 	font-family: 'Quicksand', sans-serif;	
+	font-weight: 300;
 	
 }
 
 .heading{
 	font-size: 27px;
-	font-weight: 500;
+	font-weight: 300;
 	
 }
 
@@ -21,6 +22,7 @@
 
 body {
 	background: #f2f2f2;
+	/* background: #1c1b1b; */
     font-family: 'Readex Pro', sans-serif;
 	color: #1c1b1b;
 }

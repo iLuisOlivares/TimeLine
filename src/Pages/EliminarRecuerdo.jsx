@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../css/Administrar.css";
-import { useFetch } from "../hooks/useFetch";
 import axios from "axios";
 import { getRecuerdos } from "../helpers/fetchGet";
+import DataTable, { createTheme } from "react-data-table-component";
+import "styled-components";
+import differenceBy from "lodash/differenceBy";
+import { ButtonComponent } from "../Components/ButtonComponent";
 
 const trash = (
   <svg
@@ -16,26 +19,44 @@ const trash = (
 );
 
 export const EliminarRecuerdo = () => {
-  const url = "http://localhost:8080/api/recuerdos";
-
-  const [body, setBody] = useState({
-    id: null,
-    activo: true
-  });
-
   const [data, setData] = useState(null);
 
-  const peticionGet = async () => {
-    await axios.get(url).then(response => {
-      console.log(response);
-    });
-  };
+  const [selectedRows, setSelectedRows] = React.useState([]);
+  const [toggleCleared, setToggleCleared] = React.useState(false);
+
+  const handleRowSelected = React.useCallback(state => {
+    setSelectedRows(state.selectedRows);
+  }, []);
+
+  const contextActions = React.useMemo(() => {
+    const handleDelete = () => {
+      if (
+        window.confirm(
+          `Are you sure you want to delete:\r ${selectedRows.map(
+            r => r.titulo
+          )}?`
+        )
+      ) {
+        setToggleCleared(!toggleCleared);
+        console.log(selectedRows);
+        selectedRows.map(r => {
+          peticionDelete(r.id);
+        });
+        setData(differenceBy(data, selectedRows, "id"));
+      }
+    };
+
+    return (
+      <button className="boton" key="delete" onClick={handleDelete} icon>
+        Eliminar
+      </button>
+    );
+  }, [data, selectedRows, toggleCleared]);
 
   const peticionDelete = async id => {
     await axios
       .post("http://localhost:8080/api/recuerdos/update/" + id)
       .then(response => {
-        setData(data.filter(recuerdo => recuerdo.id !== id));
         console.log("eliminados");
       });
   };
@@ -44,39 +65,53 @@ export const EliminarRecuerdo = () => {
     getRecuerdos(setData);
   }, []);
 
+  const columns = [
+    {
+      name: "Id",
+      selector: row => row.id
+    },
+    {
+      name: "Titulo",
+      selector: row => row.titulo,
+      sortable: true
+    },
+    {
+      name: "Fecha",
+      selector: row => row.fecha,
+      sortable: true
+    }
+  ];
+
   return (
-    <div className="top">
-      <div className="tabla">
-        {data == null ? (
-          <div className="cont">
-            <p>Cargando...</p>
-          </div>
-        ) : (
-          <table className="table">
-            <tr>
-              <th className="columna">Id</th>
-              <th className="columna">titulo</th>
-              <th className="columna">fecha</th>
-              <th className="columna"></th>
-            </tr>
-            {data.map(recuerdos => (
-              <tr key={recuerdos.id}>
-                <th>{recuerdos.id}</th>
-                <th>{recuerdos.titulo}</th>
-                <th>{recuerdos.fecha}</th>
-                <th>
-                  <button
-                    onClick={() => {
-                      peticionDelete(recuerdos.id);
-                    }}
-                  >
-                    {trash}
-                  </button>
-                </th>
-              </tr>
-            ))}
-          </table>
-        )}
+    <div className="view">
+      <div className="top">
+        <div className="tabla">
+          {data == null ? (
+            <div className="cont">
+              <p>Cargando...</p>
+            </div>
+          ) : (
+            <div>
+              <DataTable
+                title="Recuerdos"
+                direction="auto"
+                fixedHeader
+                fixedHeaderScrollHeight="380px"
+                columns={columns}
+                data={data}
+                pagination
+                responsive
+                highlightOnHover
+                dense
+                striped
+                contextActions={contextActions}
+                selectableRows
+                onSelectedRowsChange={handleRowSelected}
+                clearSelectedRows={toggleCleared}
+              ></DataTable>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

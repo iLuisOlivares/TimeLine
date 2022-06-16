@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../css/nuevoRecuerdo.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const NuevoRecuerdo = () => {
+  const [uploadImg, setUpload] = useState(false);
   const [body, setBody] = useState({
     titulo: "",
     imgUrl: "",
@@ -10,6 +12,27 @@ export const NuevoRecuerdo = () => {
     fecha: "",
     activo: true
   });
+
+  const subir_imagen = async e => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "recuerdosPreset");
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/iluiss/image/upload",
+      {
+        method: "POST",
+        body: data
+      }
+    );
+    const file = await res.json();
+    const name = "imgUrl";
+    setBody(prevState => ({
+      ...prevState,
+      [name]: file.secure_url
+    }));
+    setUpload(true);
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -28,15 +51,35 @@ export const NuevoRecuerdo = () => {
   };
   const handleOnSubmit = e => {
     e.preventDefault();
-    console.log(body);
-    peticionPost(url, body);
+    if (uploadImg === false) {
+      Swal.fire({
+        title: "No se ha cargado la imagen",
+        text: "Vuelve a intentarlo en 1 segundo",
+        position: "top-end",
+        icon: "error",
+        timer: 2000,
+        showConfirmButton: false
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        position: "top-end",
+        timer: 1500,
+        title: "Tu recuerdo ha sido guardado exitosamente!!",
+        showConfirmButton: false
+      });
+      console.log(body);
+
+      peticionPost(url, body);
+    }
   };
   return (
     <div className="top">
       <form onSubmit={handleOnSubmit} className="form">
         <div className="title">Hola!</div>
         <div className="subtitle">
-          Aqui puedes registrar un nuevo recuerdo 🎆 🌉 🌆
+          Aqui puedes registrar un nuevo recuerdo{" "}
+          <span role="img">🎆 🌉 🌆</span>
         </div>
         <div className="input-container ic1">
           <input
@@ -78,6 +121,7 @@ export const NuevoRecuerdo = () => {
             className="esconder input file-select pointer"
             type="file"
             placeholder=" "
+            onChange={subir_imagen}
           />
           <div className="cut cut-short"></div>
           <label htmlFor="imagen" className="placeholder">

@@ -1,9 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
+.resaltar{
+	/* color: #dcb269; */
+	color: #dd6060;
 
+}
+
+
+.evento:nth-child(even) h3{
+	color: #3472c2;
+	
+  }
+
+  .evento:nth-child(even) .foto .sec{
+	color: #3472c2;
+	
+  }
 .evento {
 	display: flex;
 	justify-content: space-between;
@@ -42,9 +57,9 @@
 
 .swal2-html-container.font{
 	font-size: 25px;
-	color:#1c1b1b;
+	color:#f1bd63;
 	font-family: 'Dosis', sans-serif;
-	font-weight: normal;
+	font-weight: 300;
 }
 
 .swal2-title.font2{
@@ -64,7 +79,7 @@
 }
 .fecha {
 	display: flex;
-	align-items: center;
+	align-items:center;
 	justify-content: start;
 	width: calc(40% + 20px);
 	font-size: 32px;
@@ -90,10 +105,14 @@
 
 }
 
-
+.pie{
+	font-weight: bold;
+	color: #1c1b1b;
+	padding: 5px;
+}
 .foto img {
 	width: 100%;
-	padding-bottom: 25px;
+	padding-bottom: 10px;
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 5px;
