@@ -79,7 +79,7 @@ export const NuevoRecuerdo = () => {
         <div className="title">Hola!</div>
         <div className="subtitle">
           Aqui puedes registrar un nuevo recuerdo{" "}
-          <span role="img">🎆 🌉 🌆</span>
+          <span role="img" aria-label="word">🎆 🌉 🌆</span>
         </div>
         <div className="input-container ic1">
           <input

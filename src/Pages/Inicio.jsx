@@ -6,7 +6,6 @@ import { useFetch } from "../hooks/useFetch";
 export const Inicio = () => {
   const url = "http://localhost:8080/api/recuerdos";
   const { data, loading } = useFetch(url);
-  console.log(data);
   return (
     <div>
       <div className="hero">
