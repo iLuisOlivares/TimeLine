@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../css/nuevoRecuerdo.css";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -12,6 +12,7 @@ export const NuevoRecuerdo = () => {
     fecha: "",
     activo: true
   });
+  const inputElement = useRef();
 
   const subir_imagen = async e => {
     const files = e.target.files;
@@ -68,9 +69,14 @@ export const NuevoRecuerdo = () => {
         title: "Tu recuerdo ha sido guardado exitosamente!!",
         showConfirmButton: false
       });
-      console.log(body);
 
       peticionPost(url, body);
+      setBody({titulo: "",
+      imgUrl: "",
+      descripcion: "Con amor",
+      fecha: "",
+      activo: true})
+      inputElement.current.value = ""
     }
   };
   return (
@@ -120,8 +126,8 @@ export const NuevoRecuerdo = () => {
             required
             className="esconder input file-select pointer"
             type="file"
-            placeholder=" "
             onChange={subir_imagen}
+            ref={inputElement}
           />
           <div className="cut cut-short"></div>
           <label htmlFor="imagen" className="placeholder">

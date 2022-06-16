@@ -20,7 +20,7 @@ export const EliminarRecuerdo = () => {
     const handleDelete = () => {
       if (
         window.confirm(
-          `Are you sure you want to delete:\r ${selectedRows.map(
+          `Estas segura que quieres eliminar?:\r ${selectedRows.map(
             r => r.titulo
           )}?`
         )
@@ -54,6 +54,7 @@ export const EliminarRecuerdo = () => {
       sortable: true
     }
   ];
+
   const peticionDelete = async id => {
     await axios
       .post("http://localhost:8080/api/recuerdos/update/" + id)
