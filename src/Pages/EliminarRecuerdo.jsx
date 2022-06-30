@@ -57,7 +57,7 @@ export const EliminarRecuerdo = () => {
 
   const peticionDelete = async id => {
     await axios
-      .post("http://localhost:8080/api/recuerdos/update/" + id)
+      .post("https://recuerdos-app-karen.herokuapp.com/api/recuerdos/update/" + id)
       .then(response => {
         console.log("eliminados");
       });

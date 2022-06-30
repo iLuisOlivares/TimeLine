@@ -43,7 +43,7 @@ export const NuevoRecuerdo = () => {
     }));
   };
 
-  const url = "http://localhost:8080/api/recuerdos/save";
+  const url = "https://recuerdos-app-karen.herokuapp.com/api/recuerdos/save";
 
   const peticionPost = async () => {
     await axios.post(url, body).then(response => {
