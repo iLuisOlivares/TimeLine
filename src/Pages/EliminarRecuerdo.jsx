@@ -39,10 +39,7 @@ export const EliminarRecuerdo = () => {
   }, [data, selectedRows, toggleCleared]);
 
   const columns = [
-    {
-      name: "Id",
-      selector: row => row.id
-    },
+    
     {
       name: "Titulo",
       selector: row => row.titulo,
