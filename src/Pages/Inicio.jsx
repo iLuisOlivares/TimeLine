@@ -4,7 +4,7 @@ import { CardTime } from "../Components/CardTime";
 import { useFetch } from "../hooks/useFetch";
 
 export const Inicio = () => {
-  const url = "https://recuerdos-app-karen.herokuapp.com/api/recuerdos";
+  const url = "http://localhost:8080/api/recuerdos";
   const { data, loading } = useFetch(url);
   return (
     <div>

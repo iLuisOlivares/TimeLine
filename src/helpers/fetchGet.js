@@ -1,6 +1,6 @@
 export const getRecuerdos = async (state) => {
 
-    const url = `https://recuerdos-app-karen.herokuapp.com/api/recuerdos`;
+    const url = `http://localhost:8080/api/recuerdos`;
 
     const resp = await fetch(url);
 

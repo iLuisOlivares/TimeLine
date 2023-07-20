@@ -43,7 +43,7 @@ export const NuevoRecuerdo = () => {
     }));
   };
 
-  const url = "https://recuerdos-app-karen.herokuapp.com/api/recuerdos/save";
+  const url = "http://localhost:8080/api/recuerdos/save";
 
   const peticionPost = async () => {
     await axios.post(url, body).then(response => {
@@ -71,11 +71,13 @@ export const NuevoRecuerdo = () => {
       });
 
       peticionPost(url, body);
-      setBody({titulo: "",
-      imgUrl: "",
-      descripcion: "Con amor",
-      fecha: "",
-      activo: true})
+      setBody({
+        titulo: "",
+        imgUrl: "",
+        descripcion: "Con amor",
+        fecha: "",
+        activo: true
+      })
       inputElement.current.value = ""
     }
   };
